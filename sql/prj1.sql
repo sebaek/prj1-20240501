@@ -11,3 +11,6 @@ CREATE TABLE board
     writer   VARCHAR(100)  NOT NULL,
     inserted DATETIME      NOT NULL DEFAULT NOW()
 );
+
+SELECT *
+FROM board;
