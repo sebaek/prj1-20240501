@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequiredArgsConstructor
@@ -20,12 +21,13 @@ public class BoardController {
     }
 
     @PostMapping("/add")
-    public String addPost(Board board) {
+    public String addPost(Board board, RedirectAttributes rttr) {
         System.out.println("board = " + board);
 
         service.add(board);
-
-        return null;
+        
+        rttr.addAttribute("id", board.getId());
+        return "redirect:/board";
     }
 
     // /board?id=3
