@@ -3,6 +3,7 @@ package com.prj1.mapper;
 import com.prj1.domain.Board;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface BoardMapper {
@@ -12,4 +13,11 @@ public interface BoardMapper {
             VALUES (#{title}, #{content}, #{writer})
             """)
     int insert(Board board);
+
+    @Select("""
+            SELECT *
+            FROM board
+            WHERE id = #{id}
+            """)
+    Board selectById(Integer id);
 }
