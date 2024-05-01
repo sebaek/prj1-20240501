@@ -15,20 +15,28 @@
 
 <h3>${board.id} 번 게시물</h3>
 <div>
-    제목
-    <input type="text" value="${board.title}" readonly>
+    <label for="inputTitle" class="form-label">
+        제목
+    </label>
+    <input id="inputTitle" class="form-control" type="text" value="${board.title}" readonly>
 </div>
 <div>
-    본문
-    <textarea cols="30" rows="10" readonly>${board.content}</textarea>
+    <label for="textareaContent" class="form-label">
+        본문
+    </label>
+    <textarea id="textareaContent" class="form-control" cols="30" rows="10" readonly>${board.content}</textarea>
 </div>
 <div>
-    작성자
-    <input type="text" readonly value="${board.writer}">
+    <label for="inputWriter" class="form-label">
+        작성자
+    </label>
+    <input id="inputWriter" class="form-control" type="text" readonly value="${board.writer}">
 </div>
 <div>
-    작성일시
-    <input type="datetime-local" readonly value="${board.inserted}">
+    <label for="inputInserted" class="form-label">
+        작성일시
+    </label>
+    <input id="inputInserted" class="form-control" type="datetime-local" readonly value="${board.inserted}">
 </div>
 
 <div>
