@@ -26,5 +26,12 @@
     작성일시
     <input type="datetime-local" readonly value="${board.inserted}">
 </div>
+
+<div>
+    <form action="/delete" method="post">
+        <input type="hidden" name="id" value="${board.id}">
+        <button>삭제</button>
+    </form>
+</div>
 </body>
 </html>
