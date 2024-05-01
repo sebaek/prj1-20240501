@@ -53,6 +53,6 @@ public class BoardController {
     public String delete(Integer id) {
         service.remove(id);
 
-        return null;
+        return "redirect:/";
     }
 }
