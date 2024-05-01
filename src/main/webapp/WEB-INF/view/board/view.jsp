@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
+
+<c:import url="/WEB-INF/fragment/navbar.jsp"></c:import>
+
+
 <h3>${board.id} 번 게시물</h3>
 <div>
     제목
