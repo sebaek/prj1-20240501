@@ -16,7 +16,7 @@
 
     <div class="row justify-content-center">
         <div class="col-6">
-            <h3>${board.id} 번 게시물</h3>
+            <h3 class="mb-4">${board.id} 번 게시물</h3>
             <div class="mb-3">
                 <label for="inputTitle" class="form-label">
                     제목

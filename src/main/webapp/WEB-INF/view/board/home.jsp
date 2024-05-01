@@ -18,7 +18,7 @@
         <div class="col-6">
 
 
-            <h3>게시물 목록</h3>
+            <h3 class="mb-4">게시물 목록</h3>
 
             <table class="table table-striped">
                 <thead>
