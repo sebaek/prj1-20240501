@@ -10,39 +10,47 @@
 </head>
 <body>
 
-<c:import url="/WEB-INF/fragment/navbar.jsp"></c:import>
+<div class="container">
+    <c:import url="/WEB-INF/fragment/navbar.jsp"></c:import>
 
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h3>${board.id} 번 게시물</h3>
+            <div class="mb-3">
+                <label for="inputTitle" class="form-label">
+                    제목
+                </label>
+                <input id="inputTitle" class="form-control" type="text" value="${board.title}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="textareaContent" class="form-label">
+                    본문
+                </label>
+                <textarea id="textareaContent" class="form-control" cols="30" rows="10"
+                          readonly>${board.content}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="inputWriter" class="form-label">
+                    작성자
+                </label>
+                <input id="inputWriter" class="form-control" type="text" readonly value="${board.writer}">
+            </div>
+            <div class="mb-3">
+                <label for="inputInserted" class="form-label">
+                    작성일시
+                </label>
+                <input id="inputInserted" class="form-control" type="datetime-local" readonly value="${board.inserted}">
+            </div>
 
-<h3>${board.id} 번 게시물</h3>
-<div class="mb-3">
-    <label for="inputTitle" class="form-label">
-        제목
-    </label>
-    <input id="inputTitle" class="form-control" type="text" value="${board.title}" readonly>
-</div>
-<div class="mb-3">
-    <label for="textareaContent" class="form-label">
-        본문
-    </label>
-    <textarea id="textareaContent" class="form-control" cols="30" rows="10" readonly>${board.content}</textarea>
-</div>
-<div class="mb-3">
-    <label for="inputWriter" class="form-label">
-        작성자
-    </label>
-    <input id="inputWriter" class="form-control" type="text" readonly value="${board.writer}">
-</div>
-<div class="mb-3">
-    <label for="inputInserted" class="form-label">
-        작성일시
-    </label>
-    <input id="inputInserted" class="form-control" type="datetime-local" readonly value="${board.inserted}">
+            <div class="mb-3">
+                <button form="formDelete" class="btn btn-danger">삭제</button>
+                <a href="/modify?id=${board.id}" class="btn btn-secondary">수정</a>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-<div class="mb-3">
-    <button form="formDelete" class="btn btn-danger">삭제</button>
-    <a href="/modify?id=${board.id}" class="btn btn-secondary">수정</a>
-</div>
 
 <div style="display: none">
     <form id="formDelete" action="/delete" method="post" onsubmit="return confirm('삭제 하시겠습니까?')">
