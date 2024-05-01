@@ -22,10 +22,8 @@ public class BoardController {
 
     @PostMapping("/add")
     public String addPost(Board board, RedirectAttributes rttr) {
-        System.out.println("board = " + board);
-
         service.add(board);
-        
+
         rttr.addAttribute("id", board.getId());
         return "redirect:/board";
     }
