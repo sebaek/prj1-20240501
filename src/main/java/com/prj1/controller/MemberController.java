@@ -25,6 +25,6 @@ public class MemberController {
     public String signup(Member member) {
         service.signup(member);
 
-        return null;
+        return "redirect:/";
     }
 }
