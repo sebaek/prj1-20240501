@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(rollbackFor = Exception.class)
 @RequiredArgsConstructor
@@ -15,5 +17,9 @@ public class MemberService {
 
     public void signup(Member member) {
         mapper.insert(member);
+    }
+
+    public List<Member> list() {
+        return mapper.selectAll();
     }
 }

@@ -21,6 +21,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/member/list" class="nav-link">
+                        회원목록
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/member/signup" class="nav-link">
                         회원가입
                     </a>
