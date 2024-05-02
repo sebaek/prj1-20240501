@@ -25,11 +25,14 @@
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">패스워드</label>
-                    <input name="password" id="inputPassword" required type="password" class="form-control">
+                    <input oninput="passwordCheck()" name="password" id="inputPassword" required type="password"
+                           class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="inputPasswordCheck" class="form-label">패스워드 확인</label>
-                    <input id="inputPasswordCheck" required type="password" class="form-control">
+                    <input oninput="passwordCheck()" id="inputPasswordCheck" required type="password"
+                           class="form-control">
+                    <div class="form-text" id="passwordMessage"></div>
                 </div>
                 <div class="mb-3">
                     <label for="inputNickName" class="form-label">별명</label>
@@ -45,6 +48,18 @@
 </div>
 
 <script>
+    function passwordCheck() {
+        const password = document.querySelector("#inputPassword").value;
+        const passwordCheck = document.querySelector("#inputPasswordCheck").value;
+
+        if (password != passwordCheck) {
+            // 메세지 보여주기
+            document.querySelector("#passwordMessage").textContent = "패스워드가 일치하지 않습니다.";
+        } else {
+            document.querySelector("#passwordMessage").textContent = "";
+        }
+    }
+
     function checkValues() {
         const password = document.getElementById("inputPassword").value;
         const passwordCheck = document.getElementById("inputPasswordCheck").value;
