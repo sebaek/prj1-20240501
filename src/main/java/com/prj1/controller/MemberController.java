@@ -63,4 +63,10 @@ public class MemberController {
         rttr.addAttribute("id", member.getId());
         return "redirect:/member";
     }
+
+    @GetMapping("email")
+    public String emailCheck(String email) {
+        System.out.println("email = " + email);
+        return null;
+    }
 }
