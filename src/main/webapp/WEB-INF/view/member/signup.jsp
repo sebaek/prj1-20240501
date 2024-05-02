@@ -53,13 +53,15 @@
 </div>
 
 <script>
-    function emailCheck() {
+    async function emailCheck() {
         const emailValue = document.querySelector("#inputEmail").value;
         const url = "/member/email?email=" + emailValue;
 
         // ajax 요청
-        fetch(url);
+        const response = await fetch(encodeURI(url));
         // 응답처리
+        // console.log(response.text());
+        alert(await response.text());
     }
 
     function passwordCheck() {

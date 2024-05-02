@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -65,8 +66,10 @@ public class MemberController {
     }
 
     @GetMapping("email")
+    @ResponseBody
     public String emailCheck(String email) {
         System.out.println("email = " + email);
-        return null;
+        String message = service.emailCheck(email);
+        return message;
     }
 }
