@@ -45,9 +45,16 @@ public class BoardService {
         int beginPageNumber = endPageNumber - 9;
 
         endPageNumber = Math.min(endPageNumber, lastPageNumber);
+
+        int prevPageNumber = beginPageNumber - 10;
+        int nextPageNumber = beginPageNumber + 10;
+
         return Map.of("boardList", mapper.selectAllByPage(offset)
                 , "pageInfo", Map.of("lastPageNumber", lastPageNumber,
                         "endPageNumber", endPageNumber,
-                        "beginPageNumber", beginPageNumber));
+                        "beginPageNumber", beginPageNumber,
+                        "prevPageNumber", prevPageNumber,
+                        "nextPageNumber", nextPageNumber,
+                        "currentPageNumber", page));
     }
 }

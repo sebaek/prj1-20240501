@@ -56,13 +56,25 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <%--            맨처음 (1) 페이지로 가기--%>
-            <c:url value="/" var="firstPageLink">
-                <c:param name="page" value="1"/>
+            <c:if test="${pageInfo.currentPageNumber > 1}">
+                <c:url value="/" var="firstPageLink">
+                    <c:param name="page" value="1"/>
+                </c:url>
+                <a href="${firstPageLink}">
+                    맨앞
+                </a>
+                |
+            </c:if>
+
+            <%-- 이전 페이지 링크--%>
+            <c:url value="/" var="prevPageLink">
+                <c:param name="page" value="${pageInfo.prevPageNumber}"/>
             </c:url>
-            <a href="${firstPageLink}">
-                맨앞
+            <a href="${prevPageLink}">
+                이전
             </a>
             |
+
             <%-- 페이지 번호 링크들..--%>
             <c:forEach begin="${pageInfo.beginPageNumber}" end="${pageInfo.endPageNumber}" var="pageNumber">
                 <c:url var="pageLink" value="/">
@@ -74,14 +86,27 @@
                 |
             </c:forEach>
 
-            <%--            맨뒤(마지막) 페이지 이동 링크--%>
-            <c:url value="/" var="lastPageLink">
-                <c:param name="page" value="${pageInfo.lastPageNumber}"/>
+            <%-- 다음 페이지 링크--%>
+            <c:url value="/" var="nextPageLink">
+                <c:param name="page" value="${pageInfo.nextPageNumber}"/>
             </c:url>
-            <a href="${lastPageLink}">
-                맨뒤
+            <a href="${nextPageLink}">
+                다음
             </a>
             |
+
+            <%--            맨뒤(마지막) 페이지 이동 링크--%>
+            <c:if test="${pageInfo.currentPageNumber < pageInfo.lastPageNumber}">
+
+                <c:url value="/" var="lastPageLink">
+                    <c:param name="page" value="${pageInfo.lastPageNumber}"/>
+                </c:url>
+                <a href="${lastPageLink}">
+                    맨뒤
+                </a>
+                |
+            </c:if>
+
         </div>
     </div>
 </div>
