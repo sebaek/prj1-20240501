@@ -41,7 +41,11 @@ public class BoardService {
         int offset = (page - 1) * 10;
         int numberOfBoard = mapper.countAll();
         int lastPageNumber = (numberOfBoard - 1) / 10 + 1;
+        int endPageNumber = (page - 1) / 10 * 10 + 10;
+        int beginPageNumber = endPageNumber - 9;
         return Map.of("boardList", mapper.selectAllByPage(offset)
-                , "pageInfo", Map.of("lastPageNumber", lastPageNumber));
+                , "pageInfo", Map.of("lastPageNumber", lastPageNumber,
+                        "endPageNumber", endPageNumber,
+                        "beginPageNumber", beginPageNumber));
     }
 }
