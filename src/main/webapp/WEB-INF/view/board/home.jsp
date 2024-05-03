@@ -52,11 +52,11 @@
 </div>
 
 <%--div.container>div.row.justify-content-center>div.col-6--%>
-<div class="container">
+<div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-6">
             <nav aria-label="Page navigation example">
-                <ul class="pagination">
+                <ul class="pagination justify-content-center">
                     <%-- 맨앞 --%>
                     <c:if test="${pageInfo.currentPageNumber > 1}">
                         <c:url value="/" var="firstPageLink">
@@ -88,7 +88,7 @@
                             <c:param name="page" value="${pageNumber}"></c:param>
                         </c:url>
 
-                        <li class="page-item">
+                        <li class="page-item ${pageInfo.currentPageNumber eq pageNumber ? 'active' : ''}">
                             <a class="page-link" href="${pageLink}">${pageNumber}</a>
                         </li>
                     </c:forEach>
