@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.Principal;
+
 @Controller
 @RequiredArgsConstructor
 public class BoardController {
@@ -22,7 +24,7 @@ public class BoardController {
     }
 
     @PostMapping("/add")
-    public String addPost(Board board, RedirectAttributes rttr) {
+    public String addPost(Board board, Principal principal, RedirectAttributes rttr) {
         service.add(board);
 
         rttr.addAttribute("id", board.getId());

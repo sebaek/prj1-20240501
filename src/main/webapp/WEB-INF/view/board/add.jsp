@@ -32,12 +32,7 @@
                     <textarea class="form-control" id="textareaContent" name="content" cols="30" rows="10"
                               required></textarea>
                 </div>
-                <div class="mb-3">
-                    <label for="inputWriter" class="form-label">
-                        작성자
-                    </label>
-                    <input class="form-control" id="inputWriter" type="text" name="writer" required>
-                </div>
+
                 <div class="mb-3">
                     <button class="btn btn-primary">저장</button>
                 </div>
