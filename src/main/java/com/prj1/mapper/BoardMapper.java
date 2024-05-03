@@ -53,4 +53,9 @@ public interface BoardMapper {
             LIMIT #{offset}, 10
             """)
     List<Board> selectAllByPage(int offset);
+
+    @Select("""
+            SELECT COUNT(*) FROM board
+            """)
+    int countAll();
 }
