@@ -55,6 +55,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6">
+            <%--            맨처음 (1) 페이지로 가기--%>
+            <c:url value="/" var="firstPageLink">
+                <c:param name="page" value="1"/>
+            </c:url>
+            <a href="${firstPageLink}">
+                맨앞
+            </a>
+            |
             <%-- 페이지 번호 링크들..--%>
             <c:forEach begin="${pageInfo.beginPageNumber}" end="${pageInfo.endPageNumber}" var="pageNumber">
                 <c:url var="pageLink" value="/">
@@ -65,6 +73,15 @@
 
                 |
             </c:forEach>
+
+            <%--            맨뒤(마지막) 페이지 이동 링크--%>
+            <c:url value="/" var="lastPageLink">
+                <c:param name="page" value="${pageInfo.lastPageNumber}"/>
+            </c:url>
+            <a href="${lastPageLink}">
+                맨뒤
+            </a>
+            |
         </div>
     </div>
 </div>
