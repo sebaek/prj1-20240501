@@ -67,13 +67,15 @@
             </c:if>
 
             <%-- 이전 페이지 링크--%>
-            <c:url value="/" var="prevPageLink">
-                <c:param name="page" value="${pageInfo.prevPageNumber}"/>
-            </c:url>
-            <a href="${prevPageLink}">
-                이전
-            </a>
-            |
+            <c:if test="${pageInfo.prevPageNumber > 0}">
+                <c:url value="/" var="prevPageLink">
+                    <c:param name="page" value="${pageInfo.prevPageNumber}"/>
+                </c:url>
+                <a href="${prevPageLink}">
+                    이전
+                </a>
+                |
+            </c:if>
 
             <%-- 페이지 번호 링크들..--%>
             <c:forEach begin="${pageInfo.beginPageNumber}" end="${pageInfo.endPageNumber}" var="pageNumber">
@@ -87,13 +89,16 @@
             </c:forEach>
 
             <%-- 다음 페이지 링크--%>
-            <c:url value="/" var="nextPageLink">
-                <c:param name="page" value="${pageInfo.nextPageNumber}"/>
-            </c:url>
-            <a href="${nextPageLink}">
-                다음
-            </a>
-            |
+            <c:if test="${pageInfo.nextPageNumber < pageInfo.lastPageNumber}">
+
+                <c:url value="/" var="nextPageLink">
+                    <c:param name="page" value="${pageInfo.nextPageNumber}"/>
+                </c:url>
+                <a href="${nextPageLink}">
+                    다음
+                </a>
+                |
+            </c:if>
 
             <%--            맨뒤(마지막) 페이지 이동 링크--%>
             <c:if test="${pageInfo.currentPageNumber < pageInfo.lastPageNumber}">
