@@ -51,6 +51,25 @@
     </div>
 </div>
 
+<%--div.container>div.row.justify-content-center>div.col-6--%>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <%-- 페이지 번호 링크들..--%>
+            <c:forEach begin="1" end="20" var="pageNumber">
+                <c:url var="pageLink" value="/">
+                    <c:param name="page" value="${pageNumber}"></c:param>
+                </c:url>
+
+                <a href="${pageLink}">${pageNumber}</a>
+
+                |
+            </c:forEach>
+        </div>
+    </div>
+</div>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
