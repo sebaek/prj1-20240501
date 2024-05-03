@@ -35,4 +35,9 @@ public class BoardService {
     public void modify(Board board) {
         mapper.update(board);
     }
+
+    public List<Board> list(Integer page) {
+        int offset = (page - 1) * 10;
+        return mapper.selectAllByPage(offset);
+    }
 }
