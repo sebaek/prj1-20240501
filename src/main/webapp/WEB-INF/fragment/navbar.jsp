@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
     <div class="container">
@@ -15,25 +16,39 @@
                         목록
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/add" class="nav-link">
-                        글쓰기
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/member/list" class="nav-link">
-                        회원목록
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/member/signup" class="nav-link">
-                        회원가입
-                    </a>
-                </li>
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item">
+                        <a href="/add" class="nav-link">
+                            글쓰기
+                        </a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item">
+                        <a href="/member/list" class="nav-link">
+                            회원목록
+                        </a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="not isAuthenticated()">
+                    <li class="nav-item">
+                        <a href="/member/signup" class="nav-link">
+                            회원가입
+                        </a>
+                    </li>
+                </sec:authorize>
 
-                <li class="nav-item">
-                    <a href="/member/login" class="nav-link">로그인</a>
-                </li>
+                <sec:authorize access="not isAuthenticated()">
+                    <li class="nav-item">
+                        <a href="/member/login" class="nav-link">로그인</a>
+                    </li>
+                </sec:authorize>
+
+                <sec:authorize access="not isAuthenticated()">
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">로그아웃</a>
+                    </li>
+                </sec:authorize>
             </ul>
         </div>
     </div>
