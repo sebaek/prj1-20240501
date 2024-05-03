@@ -64,4 +64,10 @@ public interface BoardMapper {
             SELECT COUNT(*) FROM board
             """)
     int countAll();
+
+    @Delete("""
+            DELETE FROM board
+            WHERE member_id = #{memberId}
+            """)
+    int deleteBoardByMemberId(Integer memberId);
 }
