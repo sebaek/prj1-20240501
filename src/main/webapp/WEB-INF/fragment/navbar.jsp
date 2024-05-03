@@ -44,7 +44,7 @@
                     </li>
                 </sec:authorize>
 
-                <sec:authorize access="not isAuthenticated()">
+                <sec:authorize access="isAuthenticated()">
                     <li class="nav-item">
                         <a href="/logout" class="nav-link">로그아웃</a>
                     </li>
