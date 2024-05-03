@@ -30,6 +30,10 @@
                         회원가입
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="/member/login" class="nav-link">로그인</a>
+                </li>
             </ul>
         </div>
     </div>
