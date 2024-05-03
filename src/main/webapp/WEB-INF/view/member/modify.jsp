@@ -30,12 +30,15 @@
                     <label for="inputPassword" class="form-label">암호</label>
                     <input oninput="passwordCheck()" id="inputPassword" type="password" class="form-control"
                            name="password"
-                           value="${member.password}">
+                           value="">
+                    <div class="form-text">
+                        암호를 입력하지 않으면 기존 암호로 유지됩니다.
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="inputPasswordCheck" class="form-label">암호</label>
+                    <label for="inputPasswordCheck" class="form-label">암호 확인</label>
                     <input oninput="passwordCheck()" id="inputPasswordCheck" type="password" class="form-control"
-                           value="${member.password}">
+                           value="">
                     <div id="passwordMessage" class="form-text"></div>
                 </div>
                 <div class="mb-3">
