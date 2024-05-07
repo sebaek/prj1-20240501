@@ -12,6 +12,9 @@ public class CustomUser extends User {
 
     public CustomUser(Member member) {
         super(member.getEmail(), member.getPassword(), List.of());
+        if (member.getAuthority() == null) {
+
+        }
         this.member = member;
     }
 }
